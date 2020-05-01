@@ -1,5 +1,7 @@
 # Typescript Solidity Dev Starter Kit
 
+![ci](https://github.com/catsoap/typescript-solidity-dev-starter-kit/workflows/ci/badge.svg)
+
 This is a starter kit for developing, testing, and deploying smart contracts with a full Typescript environment. This stack uses [Buidler](https://buidler.dev) as the platform layer to orchestrate all the tasks. [Ethers](https://docs.ethers.io/ethers.js/html/index.html) is used for all Ethereum interactions and testing.
 
 ## Using this Project
@@ -42,6 +44,6 @@ Add Etherscan API key to `buidler.config.ts`, then run:
 
 ## Enhancement Wish List
 
-* Better migrations strategy (Buidler working on this)
+- Better migrations strategy (Buidler working on this)
 
 PRs and feedback welcome!

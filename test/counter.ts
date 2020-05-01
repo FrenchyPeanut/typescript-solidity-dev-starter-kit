@@ -1,15 +1,15 @@
-import { ethers } from "@nomiclabs/buidler";
-import { Signer, Wallet } from "ethers";
-import chai from "chai";
-import { deployContract, solidity } from "ethereum-waffle";
-import CounterArtifact from "../artifacts/Counter.json";
-import { Counter } from "../typechain/Counter"
+import { ethers } from '@nomiclabs/buidler';
+import { Signer, Wallet } from 'ethers';
+import chai from 'chai';
+import { deployContract, solidity } from 'ethereum-waffle';
+import CounterArtifact from '../artifacts/Counter.json';
+import { Counter } from '../typechain/Counter';
 
 chai.use(solidity);
 const { expect } = chai;
 
-describe("Counter", () => {
-  // // 1
+describe('Counter', () => {
+  // 1
   // const provider = waffle.provider;
 
   // 2
@@ -20,7 +20,7 @@ describe("Counter", () => {
 
   beforeEach(async () => {
     signers = await ethers.signers();
-    counter = await deployContract(<Wallet>signers[0], CounterArtifact) as Counter;
+    counter = (await deployContract(<Wallet>signers[0], CounterArtifact)) as Counter;
     const initialCount = await counter.getCount();
 
     // 4
@@ -29,22 +29,21 @@ describe("Counter", () => {
   });
 
   // 5
-  describe("count up", async () => {
-    it("should count up", async () => {
+  describe('count up', async () => {
+    it('should count up', async () => {
       await counter.countUp();
       let count = await counter.getCount();
       expect(count).to.eq(1);
     });
   });
 
-  describe("count down", async () => {
+  describe('count down', async () => {
     // 6
-    it("should fail", async () => {
-      await expect(counter.countDown())
-        .to.be.reverted;
+    it('should fail', async () => {
+      await expect(counter.countDown()).to.be.reverted;
     });
 
-    it("should count down", async () => {
+    it('should count down', async () => {
       await counter.countUp();
 
       await counter.countDown();
